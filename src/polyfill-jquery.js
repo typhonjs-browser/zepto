@@ -1,4 +1,4 @@
-(function($) {
+;(function($) {
     // Add inner and outer width to zepto (adapted from https://gist.github.com/alanhogan/3935463)
     var ioDim = function(dimension, includeBorder) {
         return function (includeMargin) {
