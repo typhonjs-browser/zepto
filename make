@@ -39,7 +39,7 @@ target.dist = ->
 target.build = ->
   cd __dirname
   mkdir '-p', 'dist'
-  modules = (env['MODULES'] || 'umd-head zepto event ajax form ie data fx_methods fx touch umd-tail').split(' ')
+  modules = (env['MODULES'] || 'umd-head zepto event ajax form ie data fx_methods fx touch polyfill-jquery umd-tail').split(' ')
   module_files = ( "src/#{module}.js" for module in modules )
   intro = "/* Zepto #{describe_version()} - #{modules.join(' ')} - zeptojs.com/license */\n"
   dist = (intro + cat(module_files).replace(/^\/[\/*].*$/mg, '')).replace(/\n{3,}/g, "\n\n")
