@@ -3,6 +3,14 @@
 Zepto is a minimalist JavaScript library for modern browsers with a
 largely jQuery-compatible API. If you use jQuery, you already know how to use Zepto.
 
+This is Zepto with the following mods for module consumption: added JSPM overrides in package.json, removed dist/ exclusion in .gitignore, built Zepto w/ following modules: umd-head zepto event ajax form ie data fx_methods fx touch polyfill-jquery umd-tail. Added UMD wrapper for module consumption. The jQuery polyfill currently includes functions for inner / outer width & height. 
+
+For usage with JSPM:
+jspm install zepto=github:typhonrt/zepto
+
+or if replacing jquery:
+jspm install jquery=github:typhonrt/zepto
+
 See [zeptojs.com][] for an extended introduction, downloads
 and documentation.
 
