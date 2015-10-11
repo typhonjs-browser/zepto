@@ -39,7 +39,7 @@ target.dist = ->
 target.build = ->
   cd __dirname
   mkdir '-p', 'dist'
-  modules = (env['MODULES'] || 'zepto event ajax form ie').split(' ')
+  modules = (env['MODULES'] || 'umd-head zepto event ajax form ie data fx_methods fx touch umd-tail').split(' ')
   module_files = ( "src/#{module}.js" for module in modules )
   intro = "/* Zepto #{describe_version()} - #{modules.join(' ')} - zeptojs.com/license */\n"
   dist = (intro + cat(module_files).replace(/^\/[\/*].*$/mg, '')).replace(/\n{3,}/g, "\n\n")
@@ -84,8 +84,7 @@ report_size = (file) ->
   echo "#{file}: #{format_number(fsize(file) / 1024)} KiB"
 
 describe_version = ->
-  desc = exec "git --git-dir='#{root + '.git'}' describe --tags HEAD", silent: true
-  if desc.code is 0 then desc.output.replace(/\s+$/, '') else version
+  version
 
 minify = (source_code) ->
   uglify = require('uglify-js')
